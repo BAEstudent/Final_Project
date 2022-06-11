@@ -1,2 +1,4 @@
 seaborn
 plotly
+selenium
+webdriver_manager
