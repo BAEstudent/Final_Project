@@ -38,6 +38,12 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.subheader('Sales prediction')
 
+st.markdown('''In this section you are prompted to choose hypothetical expected values for the corresponding 
+features of the store. In this section a multivariate linear regression of the form:''')
+st.latex(r'''
+\text{Store Sales} = coef_0 + coef_1\times area + coef_2\times items + coef_3\times customers
+''')
+
 multivar_model = LinearRegression()
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
 
