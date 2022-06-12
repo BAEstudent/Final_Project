@@ -11,7 +11,7 @@ from sklearn.linear_model import LinearRegression
 st.title('Final Project')
 
 st.subheader('Project discription')
-st.text('Hello! This streamlit app is a part of the final project for the course in Data Science, which is dedicated to analyzing a dataset that contains information about supermarket store branches (area, items available, etc.) The dataset had been taken from kaggle (https://www.kaggle.com/datasets/surajjha101/stores-area-and-sales-data). The ultimate goal of this app is to predict sales of such stores using machine learning. This app also provides some data analysis and visualization.')
+st.text_area('Hello! This streamlit app is a part of the final project for the course in Data Science, which is dedicated to analyzing a dataset that contains information about supermarket store branches (area, items available, etc.) The dataset had been taken from kaggle (https://www.kaggle.com/datasets/surajjha101/stores-area-and-sales-data). The ultimate goal of this app is to predict sales of such stores using machine learning. This app also provides some data analysis and visualization.')
 
 st.subheader('Here is the correlation matrix for the parameters in the dataset')
 
