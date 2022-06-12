@@ -4,7 +4,7 @@ import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-import plotly.graph_objects as go
+import plotly.figure_factory as ff
 import pandas_datareader.data as get_data
 import datetime
 
@@ -17,3 +17,5 @@ AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
 
 df = pd.read_csv('Stores.csv')
 st.dataframe(df.corr())
+fig = ff.create_distplot(df['Store_Area'])
+st.plotly_chart(fig, use_container_width=True)
