@@ -8,7 +8,9 @@ import pandas_datareader.data as get_data
 import datetime
 from sklearn.linear_model import LinearRegression
 
-st.write('Final Project')
+st.title('Final Project')
+
+st.header('Here is the correlation matrix for the parameters in the dataset')
 
 start_date = datetime.datetime(2017, 1, 1)
 end_date = datetime.datetime(2021, 12, 31)
