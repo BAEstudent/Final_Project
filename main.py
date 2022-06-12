@@ -23,4 +23,4 @@ st.plotly_chart(fig, use_container_width=True)
 multivar_model = LinearRegression()
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
 
-Area = st.slider("Choose expected store area", min_value = df['Store_Area'].min(), max_value = df['Store_Area'].max(), step=50)
+Area = st.slider("Choose expected store area", min_value = int(df['Store_Area'].min()), max_value = int(df['Store_Area'].max()), step=50)
