@@ -38,8 +38,8 @@ st.plotly_chart(fig, use_container_width=True)
 st.markdown('''Here are calculates mean and variance of the parameters''')
 st.dataframe(
   data=df.drop(columns=['Store ID ', 'Store_Sales']).mean().reset_index().rename(columns={0:"Mean"}).join(
-  df.drop(columns=['Store ID ', 'Store_Sales']).var().reset_index().rename(columns={0:"Variance"}), on='index'
-  )
+  df.drop(columns=['Store ID ', 'Store_Sales']).var().reset_index().rename(columns={0:"Variance"}), rsuffix='index'
+  ).drop(columns=['indexindex])
 )
 
 st.subheader('Sales prediction')
