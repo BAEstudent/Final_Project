@@ -20,7 +20,7 @@ This app also provides some data analysis and visualization.
 
 Here is a link to project's git repository: https://github.com/BAEstudent/Final_Project''')
 
-st.subheader('Here is the correlation matrix for the parameters in the dataset')
+st.subheader('Data dyscription and analysis')
 
 start_date = datetime.datetime(2017, 1, 1)
 end_date = datetime.datetime(2021, 12, 31)
@@ -28,9 +28,14 @@ end_date = datetime.datetime(2021, 12, 31)
 AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
 
 df = pd.read_csv('Stores.csv')
+st.markdown('''This is the "Supermarket store branches sales analysis" dataset''')
+st.dataframe(df)
+st.markdown('''Here is the correlation matrix for all the attributes in the dataset''')
 st.dataframe(df.corr())
 fig = ff.create_distplot([df['Store_Area'], df['Daily_Customer_Count']], group_labels=['Area', 'Customers'])
 st.plotly_chart(fig, use_container_width=True)
+
+st.subheader('Sales prediction')
 
 multivar_model = LinearRegression()
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
