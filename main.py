@@ -41,7 +41,7 @@ st.subheader('Sales prediction')
 st.markdown('''In this section you are prompted to choose hypothetical expected values for the corresponding 
 features of the store. In this section a multivariate linear regression of the form:''')
 st.latex(r'''
-\text{Store Sales} = X_0 + X_1\times\text{area} + x_2\times\text{items} + x_3\times\text{customers}
+\text{Store Sales} = X_0 + X_1\times\text{area} + X_2\times\text{items} + X_3\times\text{customers}
 ''')
 
 multivar_model = LinearRegression()
