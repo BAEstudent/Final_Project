@@ -1,3 +1,2 @@
 seaborn
 plotly
-sqlite3==5.0.8
