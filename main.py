@@ -53,4 +53,4 @@ customers_num = st.slider("Choose expected daily customer count", min_value = in
                           max_value = int(df['Daily_Customer_Count'].max()), step=5)
 
 predicted_sales = multivar_model.predict([[area, items_num, customers_num]])
-st.write(predicted_sales)
+st.write(f'''Your sales will be: {predicted_sales}''')
