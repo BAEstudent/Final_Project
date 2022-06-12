@@ -15,3 +15,5 @@ end_date = datetime.datetime(2021, 12, 31)
 
 AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
 
+df = pd.read_csv('Stores.csv')
+st.dataframe(df.corr())
