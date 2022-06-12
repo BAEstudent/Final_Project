@@ -3,10 +3,10 @@ import streamlit as st
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 import plotly.figure_factory as ff
 import pandas_datareader.data as get_data
 import datetime
+from sklearn.linear_model import LinearRegression
 
 st.write('Final Project')
 
@@ -19,3 +19,6 @@ df = pd.read_csv('Stores.csv')
 st.dataframe(df.corr())
 fig = ff.create_distplot([df['Store_Area'], df['Daily_Customer_Count']], group_labels=['Area', 'Customers'])
 st.plotly_chart(fig, use_container_width=True)
+
+multivar_model = LinearRegression()
+multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
