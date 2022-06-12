@@ -36,7 +36,7 @@ st.markdown('''This graph shows distributions of store parameters''')
 fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers'])
 st.plotly_chart(fig, use_container_width=True)
 st.markdown('''Here are calculates mean and variance of the parameters''')
-st.dataframe(data=pd.drop['Store ID ', 'Store_Sales'].mean())
+st.dataframe(data=df.drop['Store ID ', 'Store_Sales'].mean())
 
 st.subheader('Sales prediction')
 
