@@ -32,7 +32,8 @@ st.markdown('''This is the "Supermarket store branches sales analysis" dataset''
 st.dataframe(df)
 st.markdown('''Here is the correlation matrix for all the attributes in the dataset''')
 st.dataframe(df.corr())
-fig = ff.create_distplot([df['Store_Area'], df['Daily_Customer_Count']], group_labels=['Area', 'Customers'])
+st.markdown('''This graph shows distributions of store parameters''')
+fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers'])
 st.plotly_chart(fig, use_container_width=True)
 
 st.subheader('Sales prediction')
