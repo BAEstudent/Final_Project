@@ -17,5 +17,5 @@ AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
 
 df = pd.read_csv('Stores.csv')
 st.dataframe(df.corr())
-fig = ff.create_distplot(df['Store_Area'])
+fig = ff.create_distplot(df['Store_Area'], group_labels=['1'])
 st.plotly_chart(fig, use_container_width=True)
