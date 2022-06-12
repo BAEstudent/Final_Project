@@ -35,7 +35,7 @@ st.dataframe(df.corr())
 st.markdown('''This graph shows distributions of store parameters''')
 fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers'])
 st.plotly_chart(fig, use_container_width=True)
-st.markdown('''Here are calculates mean and variance of the parameters''')
+st.markdown('''Here are calculated mean and variance of the parameters''')
 st.dataframe(
   data=df.drop(columns=['Store ID ', 'Store_Sales']).mean().reset_index().rename(columns={0:"Mean"}).join(
   df.drop(columns=['Store ID ', 'Store_Sales']).var().reset_index().rename(columns={0:"Variance"}), rsuffix='index'
