@@ -22,21 +22,16 @@ Here is a link to project's git repository: https://github.com/BAEstudent/Final_
 
 st.subheader('Data dyscription and analysis')
 
-start_date = datetime.datetime(2017, 1, 1)
-end_date = datetime.datetime(2021, 12, 31)
-
-AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
-
 df = pd.read_csv('Stores.csv')
-st.markdown('''This is the "Supermarket store branches sales analysis" dataset''')
+st.markdown('''This is the "Supermarket store branches sales analysis" dataset''') 
 st.dataframe(df)
 st.markdown('''Here is the correlation matrix for all the attributes in the dataset''')
 st.dataframe(df.corr())
 st.markdown('''This graph shows distributions of store parameters''')
-fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers'])
+fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers']) ### Creating plot
 st.plotly_chart(fig, use_container_width=True)
 st.markdown('''Here are calculated mean and variance of the parameters''')
-st.dataframe(
+st.dataframe(                                                                                              ### Creating the mean and variance table
   data=df.drop(columns=['Store ID ', 'Store_Sales']).mean().reset_index().rename(columns={0:"Mean"}).join(
   df.drop(columns=['Store ID ', 'Store_Sales']).var().reset_index().rename(columns={0:"Variance"}), rsuffix='index'
   ).drop(columns=['indexindex'])
@@ -50,7 +45,7 @@ st.latex(r'''
 \text{Store Sales} = X_0 + X_1\times\text{area} + X_2\times\text{items} + X_3\times\text{customers}
 ''')
 
-multivar_model = LinearRegression()
+multivar_model = LinearRegression()   ### Making the linear regression
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
 
 area = st.slider("Choose expected store area", min_value = int(df['Store_Area'].min()), max_value = int(df['Store_Area'].max()), step=5)
