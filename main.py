@@ -14,4 +14,4 @@ start_date = datetime.datetime(2017, 1, 1)
 end_date = datetime.datetime(2021, 12, 31)
 
 AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
-st.dataframe(AAPL)
+
