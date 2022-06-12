@@ -16,7 +16,9 @@ in Data Science, which is dedicated to analyzing a dataset that contains informa
 about supermarket store branches (area, items available, etc.) The dataset had been taken 
 from kaggle (https://www.kaggle.com/datasets/surajjha101/stores-area-and-sales-data).
 The ultimate goal of this app is to predict sales of such stores using machine learning. 
-This app also provides some data analysis and visualization.''')
+This app also provides some data analysis and visualization.
+
+Here is a link to project's git repository: https://github.com/BAEstudent/Final_Project''')
 
 st.subheader('Here is the correlation matrix for the parameters in the dataset')
 
