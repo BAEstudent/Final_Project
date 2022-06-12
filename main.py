@@ -10,7 +10,7 @@ from sklearn.linear_model import LinearRegression
 
 st.title('Final Project')
 
-st.header('Here is the correlation matrix for the parameters in the dataset')
+st.subhead('Here is the correlation matrix for the parameters in the dataset')
 
 start_date = datetime.datetime(2017, 1, 1)
 end_date = datetime.datetime(2021, 12, 31)
