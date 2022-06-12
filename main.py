@@ -27,3 +27,6 @@ area = st.slider("Choose expected store area", min_value = int(df['Store_Area'].
 items_num = st.slider("Choose expected item numer", min_value = int(df['Items_Available'].min()), max_value = int(df['Items_Available'].max()), step=5)
 customers_num = st.slider("Choose expected daily customer count", min_value = int(df['Daily_Customer_Count'].min()),
                           max_value = int(df['Daily_Customer_Count'].max()), step=5)
+
+predicted_sales = multivar_model.predict([[area, items_num, customers_num]])
+st.write(predicted_sales)
