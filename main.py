@@ -11,7 +11,7 @@ from sklearn.linear_model import LinearRegression
 st.title('Final Project')
 
 st.subheader('Project discription')
-st.text_area('''Hello! This streamlit app is a part of the final project for the course
+st.markdown('''Hello! This streamlit app is a part of the final project for the course
 in Data Science, which is dedicated to analyzing a dataset that contains information 
 about supermarket store branches (area, items available, etc.) The dataset had been taken 
 from kaggle (https://www.kaggle.com/datasets/surajjha101/stores-area-and-sales-data).
