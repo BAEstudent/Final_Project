@@ -50,8 +50,9 @@ st.markdown('''and a the KNN model are used.''')
 
 train_df, test_df = train_test_split(df)
 
-multivar_model = LinearRegression()   ### Making the linear regression
-multivar_model.fit(train_df.drop(columns=['Store ID ', 'Store_Sales']), train_df['Store_Sales'])
+with st.echo():
+    multivar_model = LinearRegression()   ### Making the linear regression
+    multivar_model.fit(train_df.drop(columns=['Store ID ', 'Store_Sales']), train_df['Store_Sales'])
 
 area = st.slider("Choose expected store area", min_value = int(df['Store_Area'].min()), max_value = int(df['Store_Area'].max()), step=5)
 items_num = st.slider("Choose expected item numer", min_value = int(df['Items_Available'].min()), max_value = int(df['Items_Available'].max()), step=5)
@@ -65,5 +66,9 @@ knn_model = KNeighborsRegressor()
 knn_model.fit(train_df.drop(columns=['Store ID ', 'Store_Sales']), train_df['Store_Sales'])
 
 predicted_sales_knn = knn_model.predict([[area, items_num, customers_num]])
-st.write(f'''First, here is the result for the multivariate linear regression. Your sales will be: {predicted_sales_knn}''')
+st.write(f'''First, here is the result for the KNN model. Your sales will be: {predicted_sales_knn}''')
+
+st.markdown('''It is up to you to decide, which model to trust (I, personally, wouldn't trust any of these), so here are some model validity characteristics.''')
+
+
 
