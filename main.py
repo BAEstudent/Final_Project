@@ -130,7 +130,8 @@ For this problem I was using scipy ans numpy modules. To save your time, here is
 of smoothed data:''')
 st.latex(r'''\displaystyle\min_{g_t} \ \left[\displaystyle\sum_{t=2}^T (y_t-g_t)^2 + 
 \lambda\displaystyle\sum_{t=2}^{T}[(g_{t-1}-g_t)-(g_{t-1}-g_{t-2})^2]\right],''')
-st.latex(r'''\text{where y - is the vector of original data, g - the vector of smoothed data (minimization variable)}, ''')
+st.latex(r'''\text{where y - is the vector of original data, g - the vector of smoothed data (minimization variable)}, \lambda -
+\text{a parameter, that was set to 1600.}''')
 
 
 
