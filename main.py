@@ -83,7 +83,7 @@ ax_1_item.scatter(test_df['Items_Available'],multivar_model.predict(test_df.drop
 ax_1_item.set_title('Items Available')
 ax_1_item.set_xlabel('Number of Items')
 ax_1_item.set_ylabel('Store Sales')
-ax_1_tem.legend()
+ax_1_item.legend()
 ax_1_cust.scatter(df['Daily_Customer_Count'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_1_cust.scatter(test_df['Daily_Customer_Count'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
 ax_1_cust.set_title('Daily Customer Count')
