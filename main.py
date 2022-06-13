@@ -9,6 +9,7 @@ import datetime
 from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import train_test_split
+import scipy as sp
 
 st.title('Final Project')
 
@@ -117,5 +118,17 @@ ax_2_cust.set_xlabel('Number of Customers')
 ax_2_cust.set_ylabel('Store Sales')
 ax_2_cust.legend()
 st.pyplot(fig_2)
+
+st.subheader('''A bit different topic... here is some math''')
+st.markdown('''After finishing the machine learning part of the project I was thinking of ideas for implementation of math in python in my project.
+At some point I remembered that in our macroeconomics-2 course we've talked about seasonal smoothing of time series and a thing called Hodrick-Prescott (HP) Filter.
+And I had realised that we didn't have an opporunity to see it working in our macro course. So, I decided to implement here. I didn't find any better data
+than Apple stock prices for the last five years, so I am really unsure of the value of such smoothed data... but the math is still valid.
+Anyway, it was fun to try using this filter.
+
+for this problem I was using scipy ans numpy modules. To save your time, here is the minimization problem of the filter that yields a vector
+of smoothed data:''')
+st.latex(r'''\displaystyle\min_{g_t} \ \displaystyle\sum_{t=2}^T (y_t-g_t)^2''')
+
 
 
