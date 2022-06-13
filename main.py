@@ -12,6 +12,12 @@ from sklearn.neighbors import KNeighborsRegressor
 from sklearn.model_selection import train_test_split
 import scipy as sp
 
+@st.cache
+def retrieve_data():
+    start_date = datetime.datetime(2017, 1, 1)
+    end_date = datetime.datetime(2021, 12, 31)
+    return get_data.get_data_yahoo("AAPL", start_date, end_date)
+    
 st.title('Final Project')
 
 st.subheader('Project discription')
@@ -138,7 +144,7 @@ st.markdown('''Here is the chunk of code with the minimization problem solution:
 with st.echo():
   start_date = datetime.datetime(2017, 1, 1)
   end_date = datetime.datetime(2021, 12, 31)
-  AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
+  AAPL = retrieve_data()
   prices = np.array(AAPL['Close'])
   def func(g):
     return np.sum(((prices-g)**2)[2:]) + 1600*(np.sum((np.diff(g)[1:-1] - np.diff(g)[:-2])**2))
