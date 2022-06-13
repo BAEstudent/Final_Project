@@ -70,10 +70,12 @@ st.write(f'''First, here is the result for the KNN model. Your sales will be: {p
 
 st.markdown('''It is up to you to decide, which model to trust (I, personally, wouldn't trust any of these), so here are some model validity characteristics.''')
 
-fig, (ax_area, ax_item, ax_cust) = plt.subplots(3, 1, figsize=(6, 8))
+fig, (ax_area, ax_item, ax_cust) = plt.subplots(3, 1, figsize=(6, 10))
 ax_area.scatter(df['Store_Area'], df['Store_Sales'], c='tab:blue')
 ax_area.scatter(test_df['Store_Area'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange')
 ax_item.scatter(df['Items_Available'], df['Store_Sales'], c='tab:blue')
 ax_item.scatter(test_df['Items_Available'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange')
+ax_cust.scatter(df['Daily_Customer_Count'], df['Store_Sales'], c='tab:blue')
+ax_cust.scatter(test_df['Daily_Customer_Count'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange')
 st.pyplot(fig)
 
