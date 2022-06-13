@@ -70,7 +70,7 @@ st.write(f'''First, here is the result for the KNN model. Your sales will be: {p
 
 st.markdown('''It is up to you to decide, which model to trust (I, personally, wouldn't trust any of these), so here are some model validity characteristics.''')
 
-fig, (ax_area, ax_item, ax_cust) = plt.subplots(1, 3)
+fig, (ax_area, ax_item, ax_cust) = plt.subplots(1, 3, figsize=(5, 2.7))
 ax_area.scatter(df['Store_Area'], df['Store_Sales'])
 st.pyplot(fig)
 
