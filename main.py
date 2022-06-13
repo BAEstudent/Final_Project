@@ -44,7 +44,7 @@ features of the store. In this section a multivariate linear regression of the f
 st.latex(r'''
 \text{Store Sales} = X_0 + X_1\times\text{area} + X_2\times\text{items} + X_3\times\text{customers}
 ''')
-st.markdown(''', and a the KNN model are used.''')
+st.markdown('''and a the KNN model are used.''')
 
 multivar_model = LinearRegression()   ### Making the linear regression
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
