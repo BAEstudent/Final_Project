@@ -3,6 +3,7 @@ import streamlit as st
 import seaborn as sns
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.figure_factory as ff
 import plotly.express as px
 import pandas_datareader.data as get_data
 import datetime
