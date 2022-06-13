@@ -7,6 +7,8 @@ import plotly.figure_factory as ff
 import pandas_datareader.data as get_data
 import datetime
 from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.model_selection import train_test_split
 
 st.title('Final Project')
 
@@ -46,13 +48,22 @@ st.latex(r'''
 ''')
 st.markdown('''and a the KNN model are used.''')
 
+train_df, test_df = train_test_split(df)
+
 multivar_model = LinearRegression()   ### Making the linear regression
-multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
+multivar_model.fit(train_df.drop(columns=['Store ID ', 'Store_Sales']), train_df['Store_Sales'])
 
 area = st.slider("Choose expected store area", min_value = int(df['Store_Area'].min()), max_value = int(df['Store_Area'].max()), step=5)
 items_num = st.slider("Choose expected item numer", min_value = int(df['Items_Available'].min()), max_value = int(df['Items_Available'].max()), step=5)
 customers_num = st.slider("Choose expected daily customer count", min_value = int(df['Daily_Customer_Count'].min()),
                           max_value = int(df['Daily_Customer_Count'].max()), step=5)
 
-predicted_sales = multivar_model.predict([[area, items_num, customers_num]])
-st.write(f'''First, here is the result for the multivariate linear regression. Your sales will be: {predicted_sales}''')
+predicted_sales_mult = multivar_model.predict([[area, items_num, customers_num]])
+st.write(f'''First, here is the result for the multivariate linear regression. Your sales will be: {predicted_sales_mult}''')
+
+knn_model = KNeighborsRegressor()
+knn_model.fit(train_df.drop(columns=['Store ID ', 'Store_Sales']), train_df['Store_Sales'])
+
+predicted_sales_knn = knn_model.predict([[area, items_num, customers_num]])
+st.write(f'''First, here is the result for the multivariate linear regression. Your sales will be: {predicted_sales_knn}''')
+
