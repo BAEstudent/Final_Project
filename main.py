@@ -44,6 +44,7 @@ features of the store. In this section a multivariate linear regression of the f
 st.latex(r'''
 \text{Store Sales} = X_0 + X_1\times\text{area} + X_2\times\text{items} + X_3\times\text{customers}
 ''')
+st.markdown(''', and a the KNN model are used.''')
 
 multivar_model = LinearRegression()   ### Making the linear regression
 multivar_model.fit(df.drop(columns=['Store ID ', 'Store_Sales']), df['Store_Sales'])
@@ -54,4 +55,4 @@ customers_num = st.slider("Choose expected daily customer count", min_value = in
                           max_value = int(df['Daily_Customer_Count'].max()), step=5)
 
 predicted_sales = multivar_model.predict([[area, items_num, customers_num]])
-st.write(f'''Your sales will be: {predicted_sales}''')
+st.write(f'''First, here is the result for the multivariate linear regression. Your sales will be: {predicted_sales}''')
