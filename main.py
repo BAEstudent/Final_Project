@@ -28,7 +28,9 @@ from kaggle (https://www.kaggle.com/datasets/surajjha101/stores-area-and-sales-d
 The ultimate goal of this app is to predict sales of such stores using machine learning. 
 This app also provides some data analysis and visualization.
 
-Here is a link to project's git repository: https://github.com/BAEstudent/Final_Project''')
+Here is a link to project's git repository: https://github.com/BAEstudent/Final_Project
+
+Some things here may take time to download, so, please, just wait for the "running" sign at the top right corner of the app to disappear.''')
 
 st.subheader('Data dyscription and analysis')
 
@@ -146,10 +148,13 @@ with st.echo():
   end_date = datetime.datetime(2021, 12, 31)
   AAPL = retrieve_data()
   prices = np.array(AAPL['Close'])
-  def func(g):
+  def loss_function(g):
     return np.sum(((prices-g)**2)[2:]) + 1600*(np.sum((np.diff(g)[1:-1] - np.diff(g)[:-2])**2))
-  res = sp.optimize.minimize(fun= func, x0=prices, method='Powell')
+  res = sp.optimize.minimize(fun=loss_function, x0=prices, method='Powell')
   
+st.markdown('''As you can see, I created the loss function and used simpy.optimize.minimize() method to minimize it. I plotted the initial price vector and
+the result vector on the same graph, and it looks pretty cool. You can zoom in on it to see, how the filter smoothes the time series.
+on the graph''')
 df = pd.DataFrame({'Prices': prices, 'Smoothed': res.x})
 st.plotly_chart(px.line(df))
 
