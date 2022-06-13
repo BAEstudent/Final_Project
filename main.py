@@ -126,9 +126,9 @@ And I had realised that we didn't have an opporunity to see it working in our ma
 than Apple stock prices for the last five years, so I am really unsure of the value of such smoothed data... but the math is still valid.
 Anyway, it was fun to try using this filter.
 
-for this problem I was using scipy ans numpy modules. To save your time, here is the minimization problem of the filter that yields a vector
+For this problem I was using scipy ans numpy modules. To save your time, here is the minimization problem of the filter that yields a vector
 of smoothed data:''')
-st.latex(r'''\displaystyle\min_{g_t} \ \displaystyle\sum_{t=2}^T (y_t-g_t)^2''')
+st.latex(r'''\displaystyle\min_{g_t} \ \displaystyle\sum_{t=2}^T (y_t-g_t)^2 + \lambda\displaystyle\sum_{t=2}^{T}[(g_{t-1}-g_t)-(g_{t-1}-g_{t-2})]''')
 
 
 
