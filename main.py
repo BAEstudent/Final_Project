@@ -72,8 +72,8 @@ st.markdown('''It is up to you to decide, which model to trust (I, personally, w
 
 fig, (ax_area, ax_item, ax_cust) = plt.subplots(3, 1, figsize=(6, 10))
 ax_area.scatter(df['Store_Area'], df['Store_Sales'], c='tab:blue', label='Real data')
-ax_area.scatter(test_df['Store_Area'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction',
-               title='Area')
+ax_area.scatter(test_df['Store_Area'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
+ax_area.set_title('Area')
 ax_item.scatter(df['Items_Available'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_item.scatter(test_df['Items_Available'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
 ax_cust.scatter(df['Daily_Customer_Count'], df['Store_Sales'], c='tab:blue', label='Real data')
