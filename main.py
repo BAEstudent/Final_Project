@@ -70,13 +70,24 @@ st.write(f'''First, here is the result for the KNN model. Your sales will be: {p
 
 st.markdown('''It is up to you to decide, which model to trust (I, personally, wouldn't trust any of these), so here are some model validity characteristics.''')
 
+st.subheader('Multivariate Linear regression prediction graphs')
 fig, (ax_area, ax_item, ax_cust) = plt.subplots(3, 1, figsize=(6, 10))
 ax_area.scatter(df['Store_Area'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_area.scatter(test_df['Store_Area'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
-ax_area.set_title('Area')
+ax_area.set_title('Store Area')
+ax_area.set_xlabel('Store Area')
+ax_area.set_ylabel('Store Sales')
+ax_area.legend()
 ax_item.scatter(df['Items_Available'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_item.scatter(test_df['Items_Available'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
+ax_item.set_title('Items Available')
+ax_item.set_xlabel('Number of Items')
+ax_item.set_ylabel('Store Sales')
 ax_cust.scatter(df['Daily_Customer_Count'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_cust.scatter(test_df['Daily_Customer_Count'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
+ax_cust.set_title('Daily Customer Count')
+ax_cust.set_xlabel('Number of Customers')
+ax_cust.set_ylabel('Store Sales')
 st.pyplot(fig)
+
 
