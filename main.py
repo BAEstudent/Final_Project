@@ -112,6 +112,6 @@ ax_2_cust.set_title('Daily Customer Count')
 ax_2_cust.set_xlabel('Number of Customers')
 ax_2_cust.set_ylabel('Store Sales')
 ax_2_cust.legend()
-st.pyplot(fig)
+st.pyplot(fig_2)
 
 
