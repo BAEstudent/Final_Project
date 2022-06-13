@@ -143,5 +143,6 @@ with st.echo():
     return np.sum(((prices-g)**2)[2:]) + 1600*(np.sum((np.diff(g)[1:-1] - np.diff(g)[:-2])**2))
   res = sp.optimize.minimize(fun= func, x0=prices, method='Powell')
   
-
+df = pd.DataFrame({'Prices': prices, 'Smoothed': res.x})
+st.plotly_chart(px.line(df))
 
