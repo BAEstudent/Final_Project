@@ -40,6 +40,7 @@ st.dataframe(df)
 st.markdown('''Here is the correlation matrix for all the attributes in the dataset''')
 st.dataframe(df.corr())
 st.markdown('''This graph shows distributions of store parameters''')
+### The code for the chart was mostly taken from streamlit documentation: https://docs.streamlit.io/library/api-reference/charts/st.plotly_chart
 fig = ff.create_distplot([df['Store_Area'], df['Items_Available'], df['Daily_Customer_Count']], group_labels=['Area', 'Items', 'Customers']) ### Creating plot
 st.plotly_chart(fig, use_container_width=True)
 st.markdown('''Here are calculated mean and variance of the parameters''')
