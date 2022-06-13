@@ -133,5 +133,15 @@ st.latex(r'''\displaystyle\min_{g_t} \ \left[\displaystyle\sum_{t=2}^T (y_t-g_t)
 \text{where y - is the vector of original data, g - the vector of smoothed data (minimization variable)},\\ \lambda -
 \text{a parameter, that was set to 1600.}''')
 
+st.markdown('''Here is the chunk of code with the minimization problem solution:''')
+with st.echo():
+  start_date = datetime.datetime(2017, 1, 1)
+  end_date = datetime.datetime(2021, 12, 31)
+  AAPL = get_data.get_data_yahoo("AAPL", start_date, end_date)
+  prices = np.array(AAPL['Close'])
+  def func(g):
+    return np.sum(((prices-g)**2)[2:]) + 1600*(np.sum((np.diff(g)[1:-1] - np.diff(g)[:-2])**2))
+  res = sp.optimize.minimize(fun= func, x0=prices, method='Powell')
+  
 
 
