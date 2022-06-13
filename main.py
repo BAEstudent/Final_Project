@@ -71,6 +71,10 @@ st.write(f'''First, here is the result for the KNN model. Your sales will be: {p
 st.markdown('''It is up to you to decide, which model to trust (I, personally, wouldn't trust any of these), so here are some model validity characteristics.''')
 
 st.subheader('Multivariate Linear regression prediction graphs')
+
+st.markdown('''The prediction was made based on a test sample from the original dataset. The models were trained
+with the training sample from the dataset''')
+
 fig_1, (ax_1_area, ax_1_item, ax_1_cust) = plt.subplots(3, 1, figsize=(5, 15))
 ax_1_area.scatter(df['Store_Area'], df['Store_Sales'], c='tab:blue', label='Real data')
 ax_1_area.scatter(test_df['Store_Area'],multivar_model.predict(test_df.drop(columns=['Store ID ', 'Store_Sales'])), c='tab:orange', label='Prediction')
